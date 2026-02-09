@@ -4,67 +4,238 @@
 --------------------------------- */
 * {
   box-sizing: border-box;
-}
-
-/* -------------------------------
-   Body Styling
-   Demonstrates box model with margin, padding, and border
---------------------------------- */
-body {
-  margin: 20px;           /* Space outside the body */
-  padding: 20px;          /* Space inside the body */
-  border: 4px solid #ccc; /* Visible border to show box model */
+  margin: 0;
+  padding: 0;
   font-family: Arial, sans-serif;
 }
 
 /* -------------------------------
-   Profile Image Styling
+   Body Styling
 --------------------------------- */
-.profile-pic {
-  width: 150px;
-  border-radius: 50%;     /* Makes image circular */
-  border: 4px solid #444; /* Border around image */
-  padding: 4px;           /* Inner spacing inside border */
+body {
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
 }
 
 /* -------------------------------
    Section Styling
-   Margins separate sections, padding and borders demonstrate box model
 --------------------------------- */
 .section {
-  margin: 30px 0;         /* Space between sections */
-  padding: 20px;          /* Inner spacing */
-  border: 2px solid #ddd; /* Section border */
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* -------------------------------
    Section Headers
-   Add spacing below headers for readability
 --------------------------------- */
 .section h3 {
-  padding-bottom: 10px;       /* Space below header text */
-  border-bottom: 1px solid #ccc; /* Visual separation from content */
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
 }
 
 /* -------------------------------
-   Form Elements Styling
+   Header Section
 --------------------------------- */
-input,
-textarea,
-button {
-  width: 100%;            /* Full width of container */
-  padding: 10px;          /* Inner spacing for readability */
-  margin-top: 8px;        /* Space above each element */
-  border: 2px solid #aaa; /* Default border */
-  border-radius: 5px;     /* Rounded corners */
+header.section {
+  display: flex;
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+  flex-direction: column;
+  /* Stack elements vertically */
+  text-align: center;
+  position: relative;
+  /* For name centering */
+  padding: 30px 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+}
+
+/* Profile Picture */
+header.section .profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #444;
+  padding: 4px;
+  object-fit: cover;
+  margin: 15px 0;
+}
+
+/* Centered Name */
+header.section h1 {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Subtitle / Role */
+header.section h2 {
+  margin-top: 180px;
+  /* Adjust to sit below image */
+  font-size: 1.2rem;
+  color: #555;
 }
 
 /* -------------------------------
-   Focus State for Form Elements
+   Summary Section
 --------------------------------- */
-input:focus,
-textarea:focus,
-button:focus {
-  outline: none;          /* Remove default outline */
-  border-color: #333;     /* Dark border to indicate focus */
+#summary p {
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* -------------------------------
+   Skills Section
+--------------------------------- */
+#skills ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+#skills li {
+  margin-bottom: 5px;
+}
+
+/* -------------------------------
+   Education Section
+--------------------------------- */
+#education ol {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+#education li {
+  margin-bottom: 5px;
+}
+
+/* -------------------------------
+   Projects / Experience Section
+--------------------------------- */
+#projects ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+#projects li {
+  margin-bottom: 5px;
+}
+
+/* -------------------------------
+   Certifications Section
+--------------------------------- */
+#certifications table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#certifications th,
+#certifications td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+#certifications th {
+  background-color: #0077cc;
+  color: white;
+}
+
+/* -------------------------------
+   Contact Form Section
+--------------------------------- */
+#contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* Space between inputs */
+  margin-top: 10px;
+}
+
+#contact label {
+  font-weight: bold;
+}
+
+#contact input,
+#contact select,
+#contact textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #aaa;
+  font-size: 1rem;
+  width: 100%;
+}
+
+#contact input:focus,
+#contact textarea:focus,
+#contact select:focus {
+  outline: none;
+  border-color: #333;
+}
+
+/* Submit Button */
+#contact button {
+  padding: 10px 20px;
+  background-color: #0077cc;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#contact button:hover {
+  background-color: #005fa3;
+}
+
+/* -------------------------------
+   Footer Section
+--------------------------------- */
+footer.section {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 20px;
+}
+
+footer a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* -------------------------------
+   Responsive Design
+--------------------------------- */
+@media (max-width: 768px) {
+  header.section {
+    flex-direction: column;
+  }
+
+  header.section h1 {
+    position: static;
+    transform: none;
+    margin-bottom: 10px;
+  }
+
+  header.section h2 {
+    margin-top: 10px;
+  }
 }
