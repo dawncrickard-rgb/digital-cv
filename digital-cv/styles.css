@@ -1,6 +1,5 @@
 /* -------------------------------
-   Apply box-sizing to all elements
-   Padding and borders included in width/height
+   Global Reset & Box Sizing
 --------------------------------- */
 * {
   box-sizing: border-box;
@@ -29,6 +28,49 @@ body {
   border-radius: 10px;
   border: 2px solid #ddd;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s forwards;
+}
+
+/* -------------------------------
+   Header Section
+--------------------------------- */
+header.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+}
+
+header.section h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+header.section h2 {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+header.section .profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #444;
+  object-fit: cover;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+}
+
+header.section .profile-pic:hover {
+  transform: scale(1.05);
 }
 
 /* -------------------------------
@@ -41,128 +83,60 @@ body {
 }
 
 /* -------------------------------
-   Header Section
+   Lists
 --------------------------------- */
-header.section {
-  display: flex;
-  justify-content: center;
-  /* Center horizontally */
-  align-items: center;
-  /* Center vertically */
-  flex-direction: column;
-  /* Stack elements vertically */
-  text-align: center;
-  position: relative;
-  /* For name centering */
-  padding: 30px 20px;
-  background-color: #f7f7f7;
-  border-radius: 10px;
+ul,
+ol {
+  margin-left: 20px;
+  margin-bottom: 10px;
 }
 
-/* Profile Picture */
-header.section .profile-pic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  border: 4px solid #444;
-  padding: 4px;
-  object-fit: cover;
-  margin: 15px 0;
-}
-
-/* Centered Name */
-header.section h1 {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-/* Subtitle / Role */
-header.section h2 {
-  margin-top: 180px;
-  /* Adjust to sit below image */
-  font-size: 1.2rem;
-  color: #555;
-}
-
-/* -------------------------------
-   Summary Section
---------------------------------- */
-#summary p {
-  margin-top: 10px;
-  line-height: 1.5;
-}
-
-/* -------------------------------
-   Skills Section
---------------------------------- */
-#skills ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin-top: 10px;
-}
-
-#skills li {
+li {
   margin-bottom: 5px;
 }
 
 /* -------------------------------
-   Education Section
+   Links
 --------------------------------- */
-#education ol {
-  margin-top: 10px;
-  padding-left: 20px;
+a {
+  color: #0077cc;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
-#education li {
-  margin-bottom: 5px;
+a:hover {
+  color: #005fa3;
+  transform: scale(1.03);
 }
 
 /* -------------------------------
-   Projects / Experience Section
+   Table Styling
 --------------------------------- */
-#projects ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin-top: 10px;
-}
-
-#projects li {
-  margin-bottom: 5px;
-}
-
-/* -------------------------------
-   Certifications Section
---------------------------------- */
-#certifications table {
+table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
 }
 
-#certifications th,
-#certifications td {
+th,
+td {
   border: 1px solid #ccc;
   padding: 10px;
   text-align: left;
 }
 
-#certifications th {
+th {
   background-color: #0077cc;
   color: white;
 }
 
 /* -------------------------------
-   Contact Form Section
+   Contact Form Styling
 --------------------------------- */
 #contact form {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  /* Space between inputs */
   margin-top: 10px;
 }
 
@@ -187,7 +161,6 @@ header.section h2 {
   border-color: #333;
 }
 
-/* Submit Button */
 #contact button {
   padding: 10px 20px;
   background-color: #0077cc;
@@ -196,15 +169,16 @@ header.section h2 {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 #contact button:hover {
   background-color: #005fa3;
+  transform: scale(1.05);
 }
 
 /* -------------------------------
-   Footer Section
+   Footer Styling
 --------------------------------- */
 footer.section {
   text-align: center;
@@ -212,13 +186,18 @@ footer.section {
   margin-top: 20px;
 }
 
-footer a {
-  color: #0077cc;
-  text-decoration: none;
-}
-
 footer a:hover {
   text-decoration: underline;
+}
+
+/* -------------------------------
+   Animations
+--------------------------------- */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* -------------------------------
@@ -226,16 +205,43 @@ footer a:hover {
 --------------------------------- */
 @media (max-width: 768px) {
   header.section {
-    flex-direction: column;
+    padding: 20px 15px;
   }
 
   header.section h1 {
-    position: static;
-    transform: none;
-    margin-bottom: 10px;
+    font-size: 1.8rem;
   }
 
   header.section h2 {
-    margin-top: 10px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header.section .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+
+  header.section h1 {
+    font-size: 1.5rem;
+  }
+
+  header.section h2 {
+    font-size: 0.9rem;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    font-size: 12px;
+  }
+
+  #contact input,
+  #contact select,
+  #contact textarea,
+  #contact button {
+    font-size: 0.9rem;
+    padding: 8px;
   }
 }
